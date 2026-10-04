@@ -1,7 +1,8 @@
 /* 1) 저장 공간 이름을 수업마다 나눕니다 (site.id + 폴더 위치) — 여러 수업 사이트의 기록이 섞이지 않습니다.
  * 2) 관리자 화면에서 고친 설정이 이 브라우저에 저장되어 있으면 config.js 대신 그것을 사용합니다.
  *    (원래 설정은 SITE_CONFIG_ORIGINAL 에 보관 — 관리자 화면의 '원래대로 되돌리기'에서 사용)
- * 3) 예전 디자인(분홍 테마)일 때 저장된 수정본이면, 색상만은 지금 config.js 의 색을 씁니다. */
+ * 3) 예전 디자인(분홍 테마)일 때 저장된 수정본이면, 색상만은 지금 config.js 의 색을 씁니다.
+ * 4) 관리자 비밀번호는 저장본이 아니라 항상 config.js 의 값을 씁니다. */
 (function () {
   const C = window.SITE_CONFIG || {};
   window.SITE_CONFIG_ORIGINAL = JSON.parse(JSON.stringify(C));
@@ -19,6 +20,8 @@
       const cfg = JSON.parse(saved);
       const accent = String(cfg.theme?.accent || "").toLowerCase();
       if (!cfg.theme || LEGACY_ACCENTS.includes(accent)) cfg.theme = JSON.parse(JSON.stringify(C.theme || {}));
+      // 관리자 비밀번호는 항상 사이트에 배포된 config.js 의 값만 인정 — 브라우저 저장본 때문에 잠기지 않도록
+      cfg.admin = JSON.parse(JSON.stringify(C.admin || {}));
       window.SITE_CONFIG = cfg;
       window.SITE_CONFIG_OVERRIDDEN = true;
     }

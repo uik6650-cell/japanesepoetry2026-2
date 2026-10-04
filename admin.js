@@ -560,7 +560,7 @@
           <div class="ed-row"><label class="ed-label" for="pw-new">새 비밀번호 (8자 이상)</label><input type="password" id="pw-new" name="next" autocomplete="new-password" /></div>
           <div class="ed-row"><label class="ed-label" for="pw-new2">새 비밀번호 확인</label><input type="password" id="pw-new2" name="next2" autocomplete="new-password" /></div>
           <button class="btn btn-sm" type="submit">변경</button>
-          <p class="muted small">비밀번호는 원문이 아니라 해시값으로만 설정에 저장됩니다. 변경 후 '저장하고 적용' → '설정 파일'에서 config.js 를 내려받아 배포해야 다른 기기에도 적용됩니다.</p>
+          <p class="muted small"><strong>⚠️ 새 비밀번호를 먼저 꼭 적어 두세요.</strong> 비밀번호는 원문이 아니라 해시값으로만 저장되어 잊으면 찾을 수 없습니다.<br>바꾸는 순서: 변경 → 저장하고 적용 → 설정 파일에서 config.js 내려받기 → 사이트에 배포. <strong>배포가 끝나야 새 비밀번호가 적용</strong>되고, 그 전까지는 지금 비밀번호로 들어갑니다.</p>
         </form>`;
     },
   };
@@ -781,7 +781,7 @@
       draft.admin = { salt, passwordHash: await sha256(salt + next) };
       setDirty(true);
       f.reset();
-      return msg("새 비밀번호를 준비했습니다. '저장하고 적용'을 눌러야 바뀝니다.");
+      return msg("새 비밀번호를 준비했습니다. 비밀번호를 적어 두셨나요? '저장하고 적용' → 설정 파일에서 config.js 내려받기 → 배포까지 하면 새 비밀번호가 적용됩니다.");
     }
   });
 
