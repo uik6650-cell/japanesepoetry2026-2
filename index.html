@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>강의 홈페이지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text" data-bind="site.title"></span>
+      </a>
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav"></nav>
+      <button class="admin-lock" type="button" aria-label="관리자 로그인" title="관리자">🔒</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="hero-badge" data-bind="site.badge"></span>
+        <p class="hero-eyebrow"></p>
+        <h1 class="hero-title" data-bind="site.title"></h1>
+        <p class="hero-ja" data-bind="site.titleAlt"></p>
+        <p class="hero-sub" data-bind="site.subtitle"></p>
+        <p class="hero-desc" data-bind="site.description"></p>
+        <div class="hero-buttons" id="hero-buttons"></div>
+      </div>
+      <div class="quick-info" id="quick-info"></div>
+    </section>
+
+    <section class="section notice-section" id="notice" hidden></section>
+    <section class="section" id="about"></section>
+    <section class="section" id="curriculum"></section>
+    <section class="section" id="portfolio"></section>
+    <section class="section" id="tools"></section>
+    <section class="section" id="enroll"></section>
+    <section class="section" id="participate"></section>
+    <section class="section" id="faq"></section>
+  </main>
+
+  <footer class="site-footer" id="instructor"></footer>
+
+  <button class="to-top" aria-label="맨 위로">↑</button>
+
+  <script src="config.js"></script>
+  <script src="override.js"></script>
+  <script src="app.js"></script>
+  <script src="participate.js"></script>
+  <script src="admin.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>
