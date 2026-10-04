@@ -554,7 +554,7 @@
     const ctx = cv.getContext("2d");
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const W = (cv.width = innerWidth * dpr), H = (cv.height = innerHeight * dpr);
-    const colors = ["#f7a8c4", "#ffd3e2", "#d9739a", "#ffffff", "#c9a7ff", "#ffc56b"];
+    const colors = ["#a3215e", "#d9558f", "#e3b23c", "#8e6cc4", "#4f7a3e", "#f6f2e7"];
     const parts = [];
     const burst = (x, y, n, dir) => {
       for (let i = 0; i < n; i++) {
@@ -604,7 +604,7 @@
     const box = document.createElement("div");
     box.className = "sparkles";
     box.setAttribute("aria-hidden", "true");
-    const colors = ["#f7a8c4", "#ffd3e2", "#d9739a", "#ffffff", "#c9a7ff", "#ffc56b"];
+    const colors = ["#a3215e", "#d9558f", "#e3b23c", "#8e6cc4", "#4f7a3e", "#f6f2e7"];
     for (let i = 0; i < n; i++) {
       const s = document.createElement("i");
       const size = 6 + Math.random() * 10;

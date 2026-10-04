@@ -17,6 +17,11 @@
     if (el) el.innerHTML = html;
   };
 
+  /* ===== 움직임 허용 여부 (문 열림 등) — config 의 welcome.respectReducedMotion 이 false 면 항상 허용 ===== */
+  const motionOK =
+    C.welcome?.respectReducedMotion === false || !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.body.classList.toggle("motion-ok", motionOK);
+
   /* ===== 공통 틀: 색상 · 상징 문양 · 탭 아이콘 ===== */
   const THEME = C.theme || {};
   const rootStyle = document.documentElement.style;
@@ -32,7 +37,7 @@
     "data:image/svg+xml," +
     encodeURIComponent(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="8" fill="${
-        THEME.accentDeep || "#d9739a"
+        THEME.accentDeep || "#244a2e"
       }"/><text x="32" y="46" font-size="40" text-anchor="middle" font-family="serif" font-weight="700" fill="#15111c">${esc(
         [...emblem][0]
       )}</text></svg>`
@@ -863,12 +868,13 @@
     update();
   }
 
-  /* ===== 꽃잎 장식 ===== */
+  /* ===== 꽃잎 장식 (꽃잎·잎사귀·노란 꽃잎이 섞여 떨어짐) ===== */
   const petals = document.querySelector(".petals");
   const count = C.site.petals === false ? 0 : window.innerWidth < 600 ? 10 : 18; // site.petals: false 면 꽃잎 끔
   for (let i = 0; i < count; i++) {
     const p = document.createElement("span");
-    p.className = "petal";
+    const kind = Math.random();
+    p.className = kind < 0.45 ? "petal leaf" : kind < 0.65 ? "petal sun" : "petal";
     const size = 8 + Math.random() * 8;
     p.style.cssText = `left:${Math.random() * 110}%;width:${size}px;height:${size * 0.8}px;
       animation-duration:${10 + Math.random() * 12}s;animation-delay:${-Math.random() * 20}s;

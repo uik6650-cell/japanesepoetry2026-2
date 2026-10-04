@@ -162,7 +162,7 @@
 
   /* ===== 라벨 ===== */
   const LABELS = {
-    site: "기본 정보", badge: "배지", title: "제목", titleAlt: "보조 제목(원어·영문)", emblem: "상징 문양(1~2글자)", petals: "꽃잎 효과", badgeIcon: "배지 아이콘", theme: "색상", accent: "강조색", accentSoft: "밝은 강조색", accentDeep: "진한 강조색", sections: "섹션 보이기", notice: "공지사항", subtitle: "부제", university: "대학",
+    site: "기본 정보", badge: "배지", title: "제목", titleAlt: "보조 제목(원어·영문)", emblem: "상징 문양(1~2글자)", petals: "꽃잎 효과", badgeIcon: "배지 아이콘", theme: "색상", accent: "강조색", accentSoft: "제목 강조색", accentDeep: "진한 강조색", sections: "섹션 보이기", notice: "공지사항", subtitle: "부제", university: "대학",
     department: "학과", description: "설명", buttons: "버튼", text: "문구", target: "이동 위치(#id)", primary: "강조 버튼",
     quickInfo: "한눈에 보기", icon: "아이콘", label: "이름", value: "값", nav: "상단 메뉴", footer: "하단 문구",
     about: "프로그램 소개", heading: "제목", lead: "안내 문구", stats: "통계 카드", suffix: "단위",
